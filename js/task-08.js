@@ -1,7 +1,7 @@
 const loginForm = document.querySelector(".login-form");
 
 loginForm.addEventListener("submit", (evt) => {
-  evt.preventDefault(); // Виклик методу preventDefault()
+  evt.preventDefault();
 
   const emailInput = loginForm.elements.email;
   const passwordInput = loginForm.elements.password;
