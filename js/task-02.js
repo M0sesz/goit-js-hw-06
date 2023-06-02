@@ -8,6 +8,7 @@ const ingredients = [
 ];
 
 const listUl = document.querySelector("ul#ingredients");
+const fragment = document.createDocumentFragment();
 
 ingredients.forEach((ingredients) => {
   const listItem = document.createElement("li");
@@ -15,3 +16,5 @@ ingredients.forEach((ingredients) => {
   listItem.classList.add("item");
   listUl.appendChild(listItem);
 });
+
+listUl.appendChild(fragment);

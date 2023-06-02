@@ -17,7 +17,12 @@ function createBoxes() {
   const amount = input.value;
   const boxes = [];
 
-  for (let i = 0; i < amount; i++) {
+  if (boxesContainer.children.length !== 0) {
+    destroyBoxes();
+    input.value = amount;
+  }
+
+  for (let i = 0; i < amount; i += 1) {
     const boxSize = 30 + i * 10;
     const box = document.createElement("div");
     box.style.width = `${boxSize}px`;
@@ -32,4 +37,5 @@ function createBoxes() {
 
 function destroyBoxes() {
   boxesContainer.innerHTML = "";
+  input.value = "";
 }

@@ -17,24 +17,20 @@ const galleryElement = document.querySelector(".gallery");
 
 const galleryItems = images
   .map((image, index) => {
-    const imgElement = document.createElement("img");
-    imgElement.src = image.url;
-    imgElement.alt = image.alt;
-    imgElement.classList.add("gallery-image");
-    imgElement.classList.add(`gallery-image-${index}`);
-    imgElement.style.width = "250px";
-    imgElement.style.height = "250px";
-    imgElement.style.objectFit = "cover";
-    galleryElement.style.display = "flex";
-    galleryElement.style.justifyContent = "center";
-    galleryElement.style.listStyle = "none";
-    galleryElement.style.gap = "15px";
+    const imgElement = `
+      <img src="${image.url}"
+           alt="${image.alt}"
+           class="gallery-image gallery-image-${index}"
+           style="width: 250px; height: 250px; object-fit: cover;">
+    `;
 
-    const liEl = document.createElement("li");
-    liEl.appendChild(imgElement);
-
-    return liEl.outerHTML;
+    return `<li>${imgElement}</li>`;
   })
   .join("");
+
+galleryElement.style.display = "flex";
+galleryElement.style.justifyContent = "center";
+galleryElement.style.listStyle = "none";
+galleryElement.style.gap = "15px";
 
 galleryElement.insertAdjacentHTML("beforeend", galleryItems);
