@@ -17,14 +17,12 @@ const galleryElement = document.querySelector(".gallery");
 
 const galleryItems = images
   .map((image, index) => {
-    const imgElement = `
+    return `<li>
       <img src="${image.url}"
            alt="${image.alt}"
            class="gallery-image gallery-image-${index}"
-           style="width: 250px; height: 250px; object-fit: cover;">
+           style="width: 250px; height: 250px; object-fit: cover;"></li>
     `;
-
-    return `<li>${imgElement}</li>`;
   })
   .join("");
 
